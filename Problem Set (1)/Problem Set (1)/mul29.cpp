@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Header.h"
 
+/*
+Müsste man das Problem per Hand auf dem Papier lösen, würde ich einfach 29 mal die Zahl addieren.
+Oder wie bei der zweiten Lösung angegeben, würde ich die Zahl einfach bis 32 verfielfachen und das Ergebnis wieder um 3 * den Input reduzieren
+*/
+
 int problem12(){
 	// read an integer a from the standart input
 	int a;
