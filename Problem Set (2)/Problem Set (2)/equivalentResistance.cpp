@@ -23,9 +23,7 @@ int main(void){
 
 	//So correct would be:
 	int rg = r12 * r34 / (r12 + r34);
-	std::cout << "The correct equivalent resistance should be " << rg << std::endl;
-
-	std::cin >> rg;
+	std::cout << "The correct equivalent resistance is " << rg << "Ohm" << std::endl;
 
 	return 0;
 }
