@@ -5,8 +5,6 @@ void recdec2bin(int n);
 void problem34(void);
 void problem34b(void);
 bool isPrime(int n);
-void primesUntilOverflow(void);
-
 int main(void){
 	std::cout << "Please input an integer: ";
 	unsigned int n;
@@ -20,7 +18,6 @@ int main(void){
 	problem34b();
 
 	std::cout << std::endl << std::endl << "Primes until overflow";
-	primesUntilOverflow();
 
 	std::cin >> n;
 	return 0;
@@ -40,6 +37,7 @@ void problem34(void){
 
 	int left = 0;
 	int right = 1;
+
 	std::cout << "0" << std::endl;
 	while (right <= n){
 		if (isPrime(right)){
@@ -48,14 +46,6 @@ void problem34(void){
 		int res = left + right;
 		left = right;
 		right = res;
-	}
-}
-
-void primesUntilOverflow(void){
-	for (int n = 0; n < 100; n++){
-		if (isPrime(n)){
-			std::cout << n << std::endl;
-		}
 	}
 }
 
