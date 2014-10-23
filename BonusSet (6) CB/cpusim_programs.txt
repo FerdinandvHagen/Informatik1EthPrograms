@@ -1,0 +1,14 @@
+Output: Outputs the value 42.
+060a2a00 210A0000 30000000 0
+
+Adder: Add 2 and 3 and outputs the result.
+060a0200 060b0300 010a0b0a 210a0000 30000000 0
+
+Resistor: Implements the replacement resistor from exercise 2.
+061a0a00 061b6400 061c3200 061dbe00 061e0200 011a1b1f 011c1d20 011f2021 031f2022 04211e23 01222322 04222122 21220000 30000000 0
+
+Loop: Counts backwards from 10 to 1 and outputs each number.
+060a0a00 060b0000 060c0100 15070a0b 210a0000 020a0c0a 10030000 30000000 0
+
+GCD: Calculates the greatest common divisor of 24 and 12. Outputs the results.
+60b1400 60c0c00 60d0000 15090b0d 13070c0b 20b0c0b 10030000 20c0b0c 10030000 210c0000 30000000 0
