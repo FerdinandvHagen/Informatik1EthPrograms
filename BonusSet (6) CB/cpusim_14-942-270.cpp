@@ -25,6 +25,7 @@ const unsigned int cmd_out = 0x21;
 const unsigned int cmd_in = 0x22;
 const unsigned int cmd_hlt = 0x30;
 
+//Program counter used in Part D
 unsigned int pc = 0;
 
 
@@ -151,7 +152,7 @@ void inst_jle(unsigned int op1, unsigned int op2, unsigned int op3)
 
 void inst_set(unsigned int op1, unsigned int op2, unsigned int op3)
 {
-    mem(op1, op2 + op3 * 256);
+    mem(op1, op2 + (op3 * 256));
     pc++;
 }
 
@@ -250,6 +251,7 @@ void disassemble_inst(unsigned int inst)
     }
     else
     {
+        //Anything went terribly wrong
         cpu::aout << "illegal" << std::endl;
     }
 }
@@ -346,7 +348,7 @@ int main()
             //first read the code from the memory
             inst = memory_read(p++);
 
-            //decode instruction to the four parts
+            //decode instruction to the four parts OpCode and three operands
             decode_instruction(inst, opc, op1, op2, op3);
 
             //and write the extracted code to the cpusim_lib for grading
@@ -357,14 +359,12 @@ int main()
 
     // part (c) print instructions
     {
-        unsigned int p = 0;
-        unsigned int inst = 0;
+        unsigned int p = 0, inst;
         while((inst = mem(p++)) != 0)
         {
             disassemble_inst(inst);
         }
     }
-
     // part (d) execute instructions
     {
         //Initialize ProgramCounter to zero; It should be zero but we make it fail safe!!
