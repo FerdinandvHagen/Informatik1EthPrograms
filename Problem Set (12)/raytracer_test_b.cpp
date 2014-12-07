@@ -37,10 +37,7 @@ namespace raytracer_test
     {
         double t_res;
         bool intersects_res = shape.intersect(ray, t_res);
-        std::cout << "\nExpected: " << t_expect << " " << intersects_expect << "\n";
-        std::cout << "Actual result: " << t_res << " " << intersects_res << "\n";
         return intersects_res == intersects_expect && (!intersects_res || is_equal(t_res, t_expect));
-
     }
 
     bool test_intersect_sphere()

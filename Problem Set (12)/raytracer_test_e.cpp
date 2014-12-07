@@ -1,5 +1,9 @@
 // Exercise 12: Raytracer
 // Test program for sub task e): "Raytracing"
+//
+// Version 2, changes:
+// 05.12.2014 Use normalized plane vector for the "diffuse_plane"
+//            to better match the problem description.
 
 #include <iostream>
 #include <cmath>
@@ -106,7 +110,7 @@ namespace raytracer_test
         const int h = 800;
         Scene scene(Vector(0, 0, -dist), Vector(10, 10, -1), White, w, h);
 
-        scene.add_shape(Shape(1, Vector(0.1, 0.9, -0.1), -5.0, 0.2 * Green, 0.7*Green, Black));
+        scene.add_shape(Shape(1, normalize(Vector(0.1, 0.9, -0.1)), -5.0, 0.2 * Green, 0.7*Green, Black));
 
         Bitmap bitmap(w, h);
         scene.raytrace(bitmap, 0);

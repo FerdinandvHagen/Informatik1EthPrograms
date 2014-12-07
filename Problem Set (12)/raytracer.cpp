@@ -167,15 +167,16 @@ struct Shape
         if(type == 0)
         {
             //Type is sphere
-            double discriminant = (ray.direction*(ray.start - v))*(ray.direction*(ray.start - v)) - (ray.start - v)*(ray.start - v) + d*d;
+            Vector dv = ray.start - v;
+            double discriminant = (ray.direction*dv)*(ray.direction*dv) - dv*dv + d*d;
             if(discriminant < 0.0)
             {
                 //no intersection
                 return false;
             }
 
-            t1 = -((ray.start - v)*ray.direction) + sqrt(discriminant);
-            t2 = -((ray.start - v)*ray.direction) - sqrt(discriminant);
+            t1 = -(dv*ray.direction) + sqrt(discriminant);
+            t2 = -(dv*ray.direction) - sqrt(discriminant);
         }
         else
         {
@@ -211,7 +212,7 @@ struct Shape
         }
         else
         {
-            return normalize(v);
+            return v;
         }
     }
 };
