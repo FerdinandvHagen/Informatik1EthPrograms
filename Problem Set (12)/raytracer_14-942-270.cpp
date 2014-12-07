@@ -271,7 +271,7 @@ struct Scene
 
             // (iii) specular highlighting
             Ray rR = Ray(rT, ray.direction - (2.0 * (s->get_normal(rT) * ray.direction) * s->get_normal(rT)));
-            rR.start += rR.direction/1000;
+            rR.start += rR.direction/1000; //hint d
 
             if(illuminated)
             {
