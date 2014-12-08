@@ -255,7 +255,7 @@ struct Scene
             Vector rT = ray.start + t * ray.direction;
             Vector v = lightVector - rT;
             Ray sR = Ray(rT, v);
-            sR.start += v/1000; //hint b
+            sR.start += sR.direction/1000; //hint b
 
             const Shape* t = NULL;
             double u = 0;
